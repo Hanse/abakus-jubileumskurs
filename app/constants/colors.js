@@ -12,4 +12,4 @@ export default {
   DARK_GRAY: '#9e9e9e',
   WHITE: '#fff',
   BLACK: '#000'
-}
+};

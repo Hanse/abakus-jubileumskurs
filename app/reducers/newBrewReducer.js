@@ -8,7 +8,7 @@ import {
   RESET_FORM
 } from '../actions/newBrew';
 
-import {brewTypes} from '../constants/brewTypes';
+import { brewTypes } from '../constants/brewTypes';
 
 const initialState = {
   alcohol: 4.7,

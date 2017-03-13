@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {NavigationActions} from 'react-navigation';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 
 import Brew from '../components/Brew';
 
@@ -28,11 +28,11 @@ BrewContainer.navigationOptions = {
   //   - key
   //   Den første kan vi benytte her for å sette en relevant tittel for komponenten vi ser på.
   //   Disse parametrene er tilgjengelig i `state.params`-objektet.
-  title: ({ state }) => 'Some beer',
+  title: ({ state }) => (console.log(state), state.params.brewName.brewName)
 };
 
 const getBrew = (state, key) => {
-  const brew = state.brewList.find(brew => brew.key === key)
+  const brew = state.brewList.find(brew => brew.key === key);
   if (brew) {
     return {
       // Enforce defaults just in case someone screws up the distributed store
@@ -47,17 +47,18 @@ const getBrew = (state, key) => {
       key: brew.key,
 
       // Default a image
-      image: brew.image || 'https://pbs.twimg.com/media/CzW9RBZXUAAK43q.jpg',
-    }
+      image: brew.data.image ||
+        'https://pbs.twimg.com/media/CzW9RBZXUAAK43q.jpg'
+    };
   }
-}
+};
 
 const mapStateToProps = (state, ownProps) => ({
-  brew: getBrew(state, ownProps.navigation.state.params.key),
+  brew: getBrew(state, ownProps.navigation.state.params.key)
 });
 
-const mapDispatchToProps = ({
-  onNavigateBack: NavigationActions.back,
-});
+const mapDispatchToProps = {
+  onNavigateBack: NavigationActions.back
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrewContainer);

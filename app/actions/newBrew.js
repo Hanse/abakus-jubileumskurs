@@ -6,7 +6,7 @@ export const SET_BREW_TYPE = 'newBrew/SET_BREW_TYPE';
 export const SET_BREWERY = 'newBrew/SET_BREWERY';
 export const SET_IMAGE = 'newBrew/SET_IMAGE';
 export const SET_RATING = 'newBrew/SET_RATING';
-export const RESET_FORM =  'newBrew/RESET_FORM';
+export const RESET_FORM = 'newBrew/RESET_FORM';
 
 export const setAlcohol = alcohol => ({
   type: SET_ALCOHOL,
